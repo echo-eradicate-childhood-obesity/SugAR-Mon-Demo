@@ -147,16 +147,16 @@ namespace ARMon
             }
         }
 
-        //public void Test()
-        //{
-        //    monsters.Clear();
-        //}
+        public void Test()
+        {
+            monsters.Clear();
+        }
         private void FixedUpdate()
         {
-            if (!canvas.activeSelf && monsters.Count <= 0)
-            {
-                backToMainButton.gameObject.SetActive(true);
-            }
+            //if (!canvas.activeSelf && monsters.Count <= 0)
+            //{
+            //    backToMainButton.gameObject.SetActive(true);
+            //}
         }
 
         //this is use for the touch/mouse event

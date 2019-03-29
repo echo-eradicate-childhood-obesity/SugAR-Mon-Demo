@@ -266,8 +266,7 @@ public class FindAddedSugar : MonoBehaviour
                                 um.IndicateController(info,"Notification");
                             }
                         }
-                        
-
+                       
                         numCount++;
                         //playerprefAs.set array
                         PlayerPrefs.SetString("num_" + numCount, r.ToLower());
