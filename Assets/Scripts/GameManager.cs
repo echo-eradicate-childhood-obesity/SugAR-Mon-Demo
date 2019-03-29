@@ -124,7 +124,8 @@ namespace ARMon
             time = 0.3f;
             shotTimer = 0f;
             shot = false;
-
+            arCoreDevice.gameObject.SetActive(false);
+            planeDiscovery.gameObject.SetActive(false);
         }
         private void Update()
         {
@@ -146,10 +147,10 @@ namespace ARMon
             }
         }
 
-        public void Test()
-        {
-            monsters.Clear();
-        }
+        //public void Test()
+        //{
+        //    monsters.Clear();
+        //}
         private void FixedUpdate()
         {
             if (!canvas.activeSelf && monsters.Count <= 0)
