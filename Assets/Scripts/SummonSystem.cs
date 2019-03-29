@@ -9,6 +9,7 @@ using System.Linq;
 public class SummonSystem : MonoBehaviour {
 
     public GameObject sugarDex, infoCard, summonSystem, familyContent, warningText, canvas;
+    public GameObject mainCam;
     private string currentSugar, currentSugarFamily, currentSpot;
     public NumbersOfEachSugar sugarCardData;
     public GameObject[] summonSpots;
@@ -19,9 +20,13 @@ public class SummonSystem : MonoBehaviour {
 
     //For Open Summon System Button
     private List<string> listOfSummonMonsters = new List<string>();
-
+    void Start()
+    {
+        mainCam = GameObject.Find("Main Camera");
+    }
     public void OpenSummonSystem()
     {
+        mainCam.GetComponent<SimpleDemo>().BarcodeScanner.Camera.Stop();
         summonSystem.gameObject.SetActive(true);
         listOfSummonMonsters.Clear();
         var sugarDisk = sugarDex.GetComponent<SugarDisk>();
@@ -36,6 +41,7 @@ public class SummonSystem : MonoBehaviour {
 
     public void CloseSummonSystem()
     {
+        mainCam.GetComponent<SimpleDemo>().BarcodeScanner.Camera.Play();
         summonSystem.gameObject.SetActive(false);
     }
     public void ReplaceSpot()

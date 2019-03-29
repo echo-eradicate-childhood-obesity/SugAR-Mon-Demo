@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 public class SimpleDemo : MonoBehaviour
 {
 
-    private IScanner BarcodeScanner;
+    public IScanner BarcodeScanner;
     public RawImage Image;
 
     private bool inDB;
@@ -66,7 +66,7 @@ public class SimpleDemo : MonoBehaviour
         // Create a basic scanner
         BarcodeScanner = new Scanner();
         BarcodeScanner.Camera.Play();
-
+        
         // Display the camera texture through a RawImage
         BarcodeScanner.OnReady += (sender, arg) => {
             // Set Orientation & Texture

@@ -30,6 +30,7 @@ public class SugarDisk : MonoBehaviour {
 
     private List<string> newMonsterFamilyDesign = new List<string>() { "Dextrin Monsters", "Cane Monsters" };
 
+    public GameObject mainCam;
     public List<string> monsterColor;
     //change to local
     //private Transform sci;
@@ -37,6 +38,7 @@ public class SugarDisk : MonoBehaviour {
 
     void Start () {
 
+        mainCam = GameObject.Find("Main Camera");
         Transform sugarDiskImage = GameObject.Find("Canvas").transform.Find("FamilyBackground");
         diskPosition = sugarDiskImage.transform.localPosition;
         foundMonsterNumber = 0;
@@ -54,6 +56,7 @@ public class SugarDisk : MonoBehaviour {
 
     public void OpenSugarDisk()
     {
+        mainCam.GetComponent<SimpleDemo>().BarcodeScanner.Camera.Stop();
         UpdateDexData();
 
         //if Open from Summon System
@@ -69,6 +72,7 @@ public class SugarDisk : MonoBehaviour {
     }
     public void CloseSugarDisk()
     {
+        mainCam.GetComponent<SimpleDemo>().BarcodeScanner.Camera.Play();
         GameObject.Find("Main Camera").GetComponent<SimpleDemo>().enabled = true;
         GameObject.Find("SugarDisk").transform.Find("RedDot").gameObject.SetActive(false);
         sugarDiskImage.gameObject.SetActive(false);
