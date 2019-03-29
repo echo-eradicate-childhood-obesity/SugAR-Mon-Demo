@@ -926,6 +926,7 @@ MonoBehaviour:
   addButtonOnSugarCard: {fileID: 1795000996}
   allCollectedSugars: []
   scannedAddedSugars: []
+  mainCam: {fileID: 0}
   monsterColor: []
 --- !u!1 &161888592
 GameObject:
@@ -3748,7 +3749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927066d69e945534d9e418957eac82fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
+  test: 1
   upcNumText: {fileID: 690513164}
   resetButton: {fileID: 474457265}
 --- !u!114 &1051750656
@@ -5672,6 +5673,7 @@ MonoBehaviour:
   familyContent: {fileID: 1337665285}
   warningText: {fileID: 1384100345}
   canvas: {fileID: 1325306016}
+  mainCam: {fileID: 1051750650}
   sugarCardData: {fileID: 11400000, guid: 68800ad102c34d44cb455726c40d1176, type: 2}
   summonSpots:
   - {fileID: 1153000626}
