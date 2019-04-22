@@ -20,6 +20,7 @@ namespace ARMon
 
         public delegate void Move();
 
+
         public GameObject textCamPos;
 
         public GameObject camPosText;
@@ -123,8 +124,7 @@ namespace ARMon
             time = 0.3f;
             shotTimer = 0f;
             shot = false;
-            arCoreDevice.gameObject.SetActive(false);
-            planeDiscovery.gameObject.SetActive(false);
+
         }
         private void Update()
         {
@@ -152,10 +152,10 @@ namespace ARMon
         }
         private void FixedUpdate()
         {
-            //if (!canvas.activeSelf && monsters.Count <= 0)
-            //{
-            //    backToMainButton.gameObject.SetActive(true);
-            //}
+            if (!canvas.activeSelf && monsters.Count <= 0)
+            {
+                backToMainButton.gameObject.SetActive(true);
+            }
         }
 
         //this is use for the touch/mouse event
@@ -233,7 +233,8 @@ namespace ARMon
                 var spawnGO = Instantiate(monsterGo, pos, Quaternion.identity);
                 spawnGO.transform.localScale = new Vector3(1, 1, 1);
                 spawnGO.SendMessage("OccupyGrid", sg);
-                monsters.Add(spawnGO);               
+                monsters.Add(spawnGO);
+                
             }
             catch (System.Exception e)
             {
@@ -264,7 +265,6 @@ namespace ARMon
             canvas.gameObject.SetActive(!canvasStatus);
             arCoreDevice.gameObject.SetActive(canvasStatus);
             planeDiscovery.gameObject.SetActive(canvasStatus);
-            ClearAllMonsters();
         }
             
 
@@ -279,14 +279,6 @@ namespace ARMon
         public void MonsterDie(GameObject go)
         {
             monsters.Remove(go);
-        }
-
-        public void ClearAllMonsters()
-        {
-            foreach(GameObject g in monsters)
-            {
-                Destroy(g);
-            }
         }
     }
 }

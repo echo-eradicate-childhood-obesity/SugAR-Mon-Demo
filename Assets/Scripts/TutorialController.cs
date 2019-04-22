@@ -31,7 +31,9 @@ public class TutorialController : MonoBehaviour {
                 {
                     pic = 0;
                     GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage++;
+                    Debug.Log("Stage Num: " + GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage);
                     PlayerPrefs.SetInt("TutorialStage", GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage);
+                    Debug.Log("Destroy");
                     GameObject.Find("Main Camera").GetComponent<SimpleDemo>().Invoke("ClickStart", 1f);
                     Destroy(gameObject);
                     Destroy(tree);
@@ -61,7 +63,9 @@ public class TutorialController : MonoBehaviour {
                 {
                     pic = 0;
                     GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage++;
+                    Debug.Log("Stage Num: " + GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage);
                     PlayerPrefs.SetInt("TutorialStage", GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage);
+                    Debug.Log("Destroy");
                     Destroy(gameObject);
                     Destroy(tree);
                     GameObject.Find("Canvas").GetComponent<FindAddedSugar>().DisplayMonsters();
@@ -89,7 +93,9 @@ public class TutorialController : MonoBehaviour {
                 {
                     pic = 0;
                     GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage++;
+                    Debug.Log("Stage Num: " + GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage);
                     PlayerPrefs.SetInt("TutorialStage", GameObject.Find("Main Camera").GetComponent<SimpleDemo>().tutorialStage);
+                    Debug.Log("Destroy");
                     Destroy(gameObject);
                     Destroy(GameObject.Find("Tutorial Dex"));
                     Destroy(tree);

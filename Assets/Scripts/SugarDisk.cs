@@ -30,7 +30,6 @@ public class SugarDisk : MonoBehaviour {
 
     private List<string> newMonsterFamilyDesign = new List<string>() { "Dextrin Monsters", "Cane Monsters" };
 
-    public GameObject mainCam;
     public List<string> monsterColor;
     //change to local
     //private Transform sci;
@@ -38,7 +37,6 @@ public class SugarDisk : MonoBehaviour {
 
     void Start () {
 
-        mainCam = GameObject.Find("Main Camera");
         Transform sugarDiskImage = GameObject.Find("Canvas").transform.Find("FamilyBackground");
         diskPosition = sugarDiskImage.transform.localPosition;
         foundMonsterNumber = 0;
@@ -56,7 +54,6 @@ public class SugarDisk : MonoBehaviour {
 
     public void OpenSugarDisk()
     {
-        mainCam.GetComponent<SimpleDemo>().BarcodeScanner.Camera.Stop();
         UpdateDexData();
 
         //if Open from Summon System
@@ -72,7 +69,6 @@ public class SugarDisk : MonoBehaviour {
     }
     public void CloseSugarDisk()
     {
-        mainCam.GetComponent<SimpleDemo>().BarcodeScanner.Camera.Play();
         GameObject.Find("Main Camera").GetComponent<SimpleDemo>().enabled = true;
         GameObject.Find("SugarDisk").transform.Find("RedDot").gameObject.SetActive(false);
         sugarDiskImage.gameObject.SetActive(false);
@@ -139,7 +135,7 @@ public class SugarDisk : MonoBehaviour {
                         bool newDesign = newMonsterFamilyDesign.Contains(s[cv.GetComponent<FindAddedSugar>().familyIndex]);
                         string monsterImagePath = newDesign ? "Images/Monsters/" + s[cv.GetComponent<FindAddedSugar>().familyIndex] + "/" + sc.name : "Images/Monsters/" + s[cv.GetComponent<FindAddedSugar>().familyIndex];
                         sci.GetComponent<Image>().sprite = Resources.Load<Sprite>(monsterImagePath);
-                        sci.gameObject.AddComponent<Button>().onClick.AddListener(() => summonSystem.GetComponent<SummonSystem>().PopupSugarInfoCardInSugarDex(sc.name, s[cv.GetComponent<FindAddedSugar>().familyIndex]));
+                        //sci.gameObject.AddComponent<Button>().onClick.AddListener(() => summonSystem.GetComponent<SummonSystem>().PopupSugarInfoCardInSugarDex(sc.name, s[cv.GetComponent<FindAddedSugar>().familyIndex]));
                         sc.transform.Find("Image").GetComponent<Button>().enabled = true;
                     }
                 }

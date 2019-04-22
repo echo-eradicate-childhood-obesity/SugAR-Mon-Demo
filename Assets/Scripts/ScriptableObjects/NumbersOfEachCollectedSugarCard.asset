@@ -11,4 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac986ec5225f5e46a25ab86570b6adf, type: 3}
   m_Name: NumbersOfEachCollectedSugarCard
   m_EditorClassIdentifier: 
-  sugars: []
+  sugars:
+  - _name: maltodextrin
+    number: 6
+  - _name: cane sugar
+    number: 3
+  - _name: barley malt
+    number: 5
